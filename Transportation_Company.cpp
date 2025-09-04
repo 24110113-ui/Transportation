@@ -57,10 +57,12 @@ int main(){
 	} else if(Action == "travelling"){
 		Travelling(Type_of_Vehicle);
 		cout<<" by "<<Type_of_Vehicle;
-	} else if(Action == "parking" && (Type_of_Vehicle != "Train" || Type_of_Vehicle != "Plane")){
-		cout<<"This action is unavailable for this vehicle!";
-	} else if(Action == "parking" && (Type_of_Vehicle == "Train" || Type_of_Vehicle == "Plane")){
-		Parking(Type_of_Vehicle);
+	} else if(Action == "parking"){
+		if(Type_of_Vehicle == "train" || Type_of_Vehicle == "plane"){
+			cout<<"This action is unavailable for this vehicle!";
+		} else{
+			Parking(Type_of_Vehicle);
+		}
 	} else if(Action == "shipping"){
 		Shipping();
 	}
@@ -95,3 +97,4 @@ void Shipping(){
 	cin>>address;
 	cout<<item<<"is delivering to "<<address<<endl;
 }
+
